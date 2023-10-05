@@ -9,3 +9,27 @@
 .btn-primary {
     background-color: #29303a;
 }
+
+#about-pic {
+    max-width: 30%;
+    opacity: 50%;
+    float: right;
+}
+
+h1 {
+    padding-top: 30px;
+}
+
+p.text-start {
+    margin-right: 100px;
+}
+
+div.Submit {
+    margin-top: 5px;
+}
+
+#footer-links > div {
+    display: inline-block;
+}
+
+

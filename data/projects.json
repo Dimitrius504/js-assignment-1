@@ -1,4 +1,14 @@
 [
-    {"id": 1, "class": "CSS", "photo": "images/css-image.png", "link" : "https://github.com/Dimitrius504/css-assignment1"},
-    {"id": 2, "class": "PHP", "photo": "images/cms-site.png", "link" : "https://github.com/Dimitrius504/assignment-3"}
+  {
+    "id": 1,
+    "class": "CSS",
+    "photo": "css-image.png",
+    "link": "https://github.com/Dimitrius504/css-assignment1"
+  },
+  {
+    "id": 2,
+    "class": "PHP",
+    "photo": "cms-site.png",
+    "link": "https://github.com/Dimitrius504/assignment-3"
+  }
 ]
