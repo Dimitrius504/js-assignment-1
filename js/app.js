@@ -65,6 +65,7 @@
                 // Set document title based on clicked element's id
                 document.title = $(event.currentTarget).prop("id")
                 loadContent(); // Load content based on clicked nav item
+                populateSkillsList();
             })
         })
     }
@@ -92,6 +93,7 @@
 
             // If document title is home load data from local storage in order to display table on page
             if (document.title == 'projects') {
+                console.log("building projects");
                 let storedData = localStorage.getItem('apiData');
 
                 if (storedData) {
@@ -130,6 +132,8 @@
             }
 
             Launch();
+            populateSkillsList();
+
         });
 
     }
@@ -139,25 +143,29 @@
     let Launch = () => {
         console.log("Everything's up and going");
 
-        // Load header and footer content
-        loadHeader();
-        loadFooter();
-        populateSkillsList();
+        // load localstorage with data
+        $.getJSON("../data/projects.json", (data) => {
+            localStorage.setItem("apiData", JSON.stringify(data));
 
-        // hook up call to action
-        const ctaButton = document.querySelector("#aboutPage")
+            // Load header and footer content
+            loadHeader();
+            loadFooter();
 
-        if (ctaButton) {
-            ctaButton.addEventListener("click", (event) => {
-                console.log("CTA clicked");
-                event.preventDefault();
+            // hook up call to action
+            const ctaButton = document.querySelector("#aboutPage")
 
-                // Set document title based on clicked element's id
-                document.title = event.currentTarget.dataset.page;
-                loadContent(); // Load content based on clicked nav item
-            });
-        }
+            if (ctaButton) {
+                ctaButton.addEventListener("click", (event) => {
+                    console.log("CTA clicked");
+                    event.preventDefault();
 
+                    // Set document title based on clicked element's id
+                    document.title = event.currentTarget.dataset.page;
+                    loadContent(); // Load content based on clicked nav item
+                    
+                });
+            }
+        });
     };
 
     // Event listener for window load event to launch the application
